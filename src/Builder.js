@@ -74,7 +74,7 @@ export default class Builder {
     return this
   }
 
-  where(filter) {
+  whereCustom(filter) {
     if (!filter instanceof Object)
       throw new Error('The FILTER params must be a json object.')
 
