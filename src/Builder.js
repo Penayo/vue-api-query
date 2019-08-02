@@ -74,6 +74,15 @@ export default class Builder {
     return this
   }
 
+  where(filter) {
+    if (!filter instanceof Object)
+      throw new Error('The FILTER params must be a json object.')
+
+    this.filters = filter
+
+    return this
+  }
+
   whereIn(key, array) {
     if (!Array.isArray(array))
       throw new Error('The second argument on whereIn() method must be an array.')
