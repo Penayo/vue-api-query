@@ -187,7 +187,11 @@ export default class Model extends StaticModel {
   }
 
   where(field, value) {
-    this._builder.where(field, value)
+    if (typeof field === Object && !value) {
+      this._builder.whereCustom(field)
+    } else {
+      this._builder.where(field, value)
+    }
 
     return this
   }
