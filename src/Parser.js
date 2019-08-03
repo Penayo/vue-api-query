@@ -104,6 +104,7 @@ export default class Parser {
     }
 
     let filters = { [this.parameterNames().filter]: this.builder.filters }
+    console.log('Filters', filters)
     this.uri += this.prepend() + qs.stringify(filters, { encode: false })
   }
 
