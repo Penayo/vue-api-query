@@ -74,11 +74,17 @@ export default class Builder {
     return this
   }
 
-  whereCustom(filter) {
-    if (!filter instanceof Object)
+  whereCustom(filterOrKey, value) {
+    if (!filterOrKey instanceof Object)
       throw new Error('The FILTER params must be a json object.')
 
-    this.filters = filter
+    if (filterOrKey instanceof Object) {
+      this.filters = filterOrKey
+    } else {
+      if (value instanceof Object) {
+        this.filters[filterOrKey] = value
+      }
+    }
 
     return this
   }
