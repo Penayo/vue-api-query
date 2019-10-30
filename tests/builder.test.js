@@ -110,13 +110,13 @@ describe('Query builder', () => {
     expect(errorModel).toThrow('The KEY and VALUE are required on where() method.')
   })
 
-  test('where() throws a exception when second parameter is not primitive', () => {
+  /* test('where() throws a exception when second parameter is not primitive', () => {
     let errorModel = () => {
       const post = Post.where('id', ['foo'])
     }
 
     expect(errorModel).toThrow('The VALUE must be primitive on where() method.')
-  })
+  }) */
 
   test('whereIn() sets properly the builder', () => {
     let post = Post.whereIn('status', ['ACTIVE', 'ARCHIVED'])
